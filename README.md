@@ -46,7 +46,6 @@ unzip datasets.zip
 python main.py --from_pretrained google/t5-v1_1-base --dataset cqa --model_type standard --label_type gt --batch_size 64
 ```
 
-
 - Distilling step-by-step with `GT label` and `PaLM rationale`:
 ```python
 python main.py --from_pretrained google/t5-v1_1-base --dataset cqa --model_type task_prefix --label_type gt --llm palm --alpha 0.5 --batch_size 64
@@ -97,7 +96,7 @@ python explain_test.py --dataset DATASET --ckpt_path CHECKPOINT_PATH
 Example: 
 
 ```
-python explain_test.py --dataset esnli --ckpt_path esnli_data/esnli_cpt
+python explain_test.py --dataset esnli --ckpt_path esnli_data/esnli_cpt --input ./datasets/cqa/llm/test_CoT_0.json
 ```
 This would run on esnli test set with esnli checkpoint. The output is a file named as `dataset_esnli_model_esnli_data_esnli_cpt_explain.txt`, where each line is a pair of Gold COT and predicted COT.
 
